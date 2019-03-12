@@ -9,7 +9,9 @@ export default function BasicLayout() {
   return (
     <Layout>
       <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
-        <div className="logo" />
+        <div style={{ width: '100%', height: '100px', textAlign: 'center' }}>
+          <img src={require('../assets/img/logo.svg')} alt="logo" height="100%" />
+        </div>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
           <Menu.Item key="1">
             <Icon type="user" />
