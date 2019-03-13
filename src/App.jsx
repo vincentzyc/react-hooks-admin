@@ -1,9 +1,10 @@
 import React from 'react';
-import BasicLayout from './layout';
+// import BasicLayout from './layout';
+import RouterConfig from "./router";
 import './assets/css/App.css';
 
 const App = () => (
-  <BasicLayout />
+  <RouterConfig />
 )
 
 export default App;

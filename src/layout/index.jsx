@@ -5,7 +5,8 @@ const {
   Header, Content, Footer, Sider,
 } = Layout;
 
-export default function BasicLayout() {
+export default function BasicLayout(props) {
+  console.log(props);
   return (
     <Layout>
       <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
@@ -51,7 +52,8 @@ export default function BasicLayout() {
         <Header style={{ background: '#fff', padding: 0 }} />
         <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
           <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
-            ...
+            {props.children}
+            {/* ...
           <br />
             Really
           <br />...<br />...<br />...<br />
@@ -63,8 +65,8 @@ export default function BasicLayout() {
           <br />...<br />...<br />...<br />...<br />...<br />...
           <br />...<br />...<br />...<br />...<br />...<br />...
           <br />...<br />...<br />...<br />...<br />...<br />
-            content
-        </div>
+            content */}
+          </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
           Ant Design ©2018 Created by Ant UED
