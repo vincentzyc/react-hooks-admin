@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Select, InputNumber, DatePicker, Switch, Slider, Button } from 'antd';
+import { Link } from 'react-router-dom'
 
 const { Option } = Select;
 
@@ -33,9 +34,10 @@ const App = () => (
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 8 }}
     >
-      <Select defaultValue="lucy" style={{ width: 192 }}>
+      <Select defaultValue="vincent" style={{ width: 192 }}>
         <Option value="jack">jack</Option>
         <Option value="lucy">lucy</Option>
+        <Option value="vincent">vincent</Option>
         <Option value="disabled" disabled>disabled</Option>
         <Option value="yiminghe">yiminghe</Option>
       </Select>
@@ -48,9 +50,12 @@ const App = () => (
       <DatePicker />
     </Form.Item>
     <Form.Item wrapperCol={{ span: 8, offset: 8 }}>
-      <Button type="primary" htmlType="submit">
-        确定
-      </Button>
+      <Link to="/page6">
+        <Button type="primary" htmlType="submit">
+          确定
+        </Button>
+      </Link>
+      
       <Button style={{ marginLeft: 8 }}>
         取消
       </Button>

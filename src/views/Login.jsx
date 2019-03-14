@@ -4,11 +4,14 @@ import { Form, Icon, Input, Button } from "antd";
 
 const FormItem = Form.Item;
 
-const LoginForm = () => {
-  const { getFieldDecorator } = this.props.form;
+const LoginForm = props => {
+  const { getFieldDecorator } = props.form;
+  const handleSubmit = () => {
+    console.log('登录');
+  }
   return (
     <div className="wrapper">
-      <Form onSubmit={this.handleSubmit} className="login-form loginForm">
+      <Form onSubmit={handleSubmit} className="login-form loginForm">
         <FormItem>
           {getFieldDecorator("userName", {
             rules: [{ required: true, message: "Please input your username!" }]
@@ -29,4 +32,6 @@ const LoginForm = () => {
   );
 }
 
-export default LoginForm;
+const WrappedNormalLoginForm = Form.create()(LoginForm);
+
+export default WrappedNormalLoginForm;
