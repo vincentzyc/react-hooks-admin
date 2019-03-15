@@ -40,4 +40,7 @@
   right: auto;
   left: 0
 } */
+.ant-layout-sider::-webkit-scrollbar {
+  display: none;
+}
 /* reset ant css end*/
