@@ -1,8 +1,15 @@
 import React from 'react';
 
-const Page2 = () => (
-  <div>
-    <h3>page2</h3>
+const Page2 = props => (
+  <div onClick={() => {
+    props.history.push("/page3");
+  }}
+  >
+    <img
+      src={require("../assets/img/logo.svg")}
+      alt="logo"
+      className="App-logo"
+    />
   </div>
 );
 

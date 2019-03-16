@@ -17,7 +17,12 @@ export default function BasicLayout(props) {
         <div style={{ width: '100%', height: '100px', textAlign: 'center' }}>
           <img src={require('../assets/img/logo.svg')} alt="logo" height="100%" />
         </div>
-        <Menu theme="dark" mode="inline" onClick={handleClick} defaultSelectedKeys={[props.location.pathname]}>
+        <Menu
+          theme="dark"
+          mode="inline"
+          onClick={handleClick}
+          defaultSelectedKeys={[props.location.pathname]}
+        >
           <Menu.Item key="/">
             <Icon type="user" />
             <span className="nav-text">nav 1</span>
