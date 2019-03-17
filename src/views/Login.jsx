@@ -6,8 +6,14 @@ const FormItem = Form.Item;
 
 const LoginForm = props => {
   const { getFieldDecorator } = props.form;
-  const handleSubmit = () => {
-    console.log('登录');
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.form.validateFields((err, values) => {
+      if (!err) {
+        window.localStorage.setItem("y_userName", values.userName);
+        props.history.replace('/');
+      }
+    });
   }
   return (
     <div className="wrapper">
@@ -23,9 +29,7 @@ const LoginForm = props => {
           })(<Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />)}
         </FormItem>
         <FormItem>
-          <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
-                  </Button>
+          <Button type="primary" htmlType="submit" className="login-form-button">Log in</Button>
         </FormItem>
       </Form>
     </div>
