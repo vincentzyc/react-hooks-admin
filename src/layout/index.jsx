@@ -1,17 +1,18 @@
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
+import { Redirect } from "react-router-dom";
 
 const {
   Header, Content, Footer, Sider,
 } = Layout;
-
 
 export default function BasicLayout(props) {
   const handleClick = e => {
     if (props.location.pathname === e.key) return false;
     props.history.push(e.key);
   };
-  return (
+  let isLogin = window.localStorage.getItem("y_userName");
+  return isLogin ? (
     <Layout>
       <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
         <div style={{ width: '100%', height: '100px', textAlign: 'center' }}>
@@ -62,19 +63,6 @@ export default function BasicLayout(props) {
         <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
           <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
             {props.children}
-            {/* ...
-          <br />
-            Really
-          <br />...<br />...<br />...<br />
-            long
-          <br />...<br />...<br />...<br />...<br />...<br />...
-          <br />...<br />...<br />...<br />...<br />...<br />...
-          <br />...<br />...<br />...<br />...<br />...<br />...
-          <br />...<br />...<br />...<br />...<br />...<br />...
-          <br />...<br />...<br />...<br />...<br />...<br />...
-          <br />...<br />...<br />...<br />...<br />...<br />...
-          <br />...<br />...<br />...<br />...<br />...<br />
-            content */}
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
@@ -82,5 +70,7 @@ export default function BasicLayout(props) {
       </Footer>
       </Layout>
     </Layout>
-  );
+  ) : (
+      <Redirect replace to="/login" />
+    )
 }

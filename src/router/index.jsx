@@ -1,7 +1,7 @@
 import React from 'react';
 // import React, { Suspense, lazy } from 'react';
 // import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 import Loadable from 'react-loadable';
 
 
@@ -9,6 +9,7 @@ import Loadable from 'react-loadable';
 import Containers from "../layout";
 
 const Loading = () => (<div>Loading...</div>);
+const Page404 = () => (<h2 style={{textAlign:'center'}}>...404...</h2>);
 
 const MyLoadable = component => Loadable({
   loader: component,
@@ -20,6 +21,7 @@ export default function RouterList() {
     <HashRouter>
       <Switch>
         <Route exact path="/login" component={MyLoadable(() => import('../views/Login'))} />
+        <Route path="/404" component={Page404} />
         <Route
           path="/"
           render={({ history, location }) => (
@@ -33,7 +35,8 @@ export default function RouterList() {
                 <Route path="/Page6" component={MyLoadable(() => import('../views/page6'))} />
                 <Route path="/Page7" component={MyLoadable(() => import('../views/page7'))} />
                 <Route path="/Page8" component={MyLoadable(() => import('../views/page8'))} />
-                {/* <Redirect replace to="/" /> */}
+                <Route path="/Page8" component={MyLoadable(() => import('../views/page8'))} />
+                <Redirect replace to="/404" />
               </Switch>
             </Containers>
           )}
