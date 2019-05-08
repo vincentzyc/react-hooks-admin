@@ -57,6 +57,10 @@ export default function BasicLayout(props) {
             <Icon type="shop" />
             <span className="nav-text">nav 8</span>
           </Menu.Item>
+          <Menu.Item key="/todos">
+            <Icon type="hdd" />
+            <span className="nav-text">todos</span>
+          </Menu.Item>
         </Menu>
       </Sider>
       <Layout style={{ marginLeft: 200 }}>

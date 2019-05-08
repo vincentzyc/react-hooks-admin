@@ -28,14 +28,15 @@ export default function RouterList() {
             <Containers history={history} location={location}>
               <Switch>
                 <Route exact path="/" component={MyLoadable(() => import('../views/page1'))} />
-                <Route path="/Page2" component={MyLoadable(() => import('../views/page2'))} />
-                <Route path="/Page3" component={MyLoadable(() => import('../views/page3'))} />
-                <Route path="/Page4" component={MyLoadable(() => import('../views/page4'))} />
-                <Route path="/Page5" component={MyLoadable(() => import('../views/page5'))} />
-                <Route path="/Page6" component={MyLoadable(() => import('../views/page6'))} />
-                <Route path="/Page7" component={MyLoadable(() => import('../views/page7'))} />
-                <Route path="/Page8" component={MyLoadable(() => import('../views/page8'))} />
-                <Route path="/Page8" component={MyLoadable(() => import('../views/page8'))} />
+                <Route path="/page2" component={MyLoadable(() => import('../views/page2'))} />
+                <Route path="/page3" component={MyLoadable(() => import('../views/page3'))} />
+                <Route path="/page4" component={MyLoadable(() => import('../views/page4'))} />
+                <Route path="/page5" component={MyLoadable(() => import('../views/page5'))} />
+                <Route path="/page6" component={MyLoadable(() => import('../views/page6'))} />
+                <Route path="/page7" component={MyLoadable(() => import('../views/page7'))} />
+                <Route path="/page8" component={MyLoadable(() => import('../views/page8'))} />
+                <Route path="/page8" component={MyLoadable(() => import('../views/page8'))} />
+                <Route path="/todos" component={MyLoadable(() => import('../views/todos'))} />
                 <Redirect replace to="/404" />
               </Switch>
             </Containers>
