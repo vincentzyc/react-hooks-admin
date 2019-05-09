@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import { withRouter } from "react-router-dom";
 import sidebarList from "./sidebar.js"
@@ -10,10 +10,22 @@ function Siderbar(props) {
     if (props.location.pathname === e.key) return false;
     props.history.push(e.key);
   };
+
+  const [collapsed, setCollapsed] = useState(false);
+
+  const onCollapse = (collapsed) => {
+    collapsed?document.getElementById('sectionLayout').style.marginLeft="80px":document.getElementById('sectionLayout').style.marginLeft="200px"
+    setCollapsed(collapsed);
+  }
   return (
-      <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
-        <div style={{ width: '100%', height: '100px', textAlign: 'center' }}>
-          <img src={require('../assets/img/logo.svg')} alt="logo" height="100%" />
+      <Sider 
+        style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }} 
+        collapsible
+        collapsed={collapsed}
+        onCollapse={onCollapse}
+      >
+        <div style={{ width: '100%', textAlign: 'center' }}>
+          <img src={require('../assets/img/logo.svg')} alt="logo" width="100%" />
         </div>
         <Menu
           theme="dark"

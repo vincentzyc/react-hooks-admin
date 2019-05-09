@@ -12,7 +12,7 @@ export default function BasicLayout(props) {
   return isLogin ? (
     <Layout>
       <Siderbar />
-      <Layout style={{ marginLeft: 200 }}>
+      <Layout id="sectionLayout" style={{ marginLeft: 200,transition:'0.3s' }}>
         <Header style={{ background: '#fff', padding: 0 }} />
         <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
           <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
