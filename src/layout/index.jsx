@@ -10,18 +10,20 @@ const {
 export default function BasicLayout(props) {
   let isLogin = window.localStorage.getItem("y_userName");
   return isLogin ? (
-    <Layout>
+    <Layout style={{ height: '100%' }}>
       <Siderbar />
-      <Layout id="sectionLayout" style={{ marginLeft: 200,transition:'0.3s' }}>
-        <Header style={{ background: '#fff', padding: 0 }} />
-        <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-          <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
-            {props.children}
-          </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©2018 Created by Ant UED
-      </Footer>
+      <Layout id="section_layout" style={{ marginLeft: 200, transition: '0.3s', height: '100%', overflow: 'auto' }}>
+        <div style={{ minWidth: '1100px', height: '100%' }}>
+          <Header style={{ background: '#fff', padding: 0 }} />
+          <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+            <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
+              {props.children}
+            </div>
+          </Content>
+          <Footer style={{ textAlign: 'center' }}>
+            Ant Design ©2018 Created by Ant UED
+          </Footer>
+        </div>
       </Layout>
     </Layout>
   ) : (
