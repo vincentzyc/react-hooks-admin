@@ -33,8 +33,9 @@ function Siderbar(props) {
         onClick={handleClick}
         defaultSelectedKeys={[props.location.pathname]}
         selectedKeys={[props.location.pathname]}
+        style={{ marginBottom: '50px' }}
       >
-        {sidebarList.map((item, index) => (
+        {sidebarList.map(item => (
           <Menu.Item key={item.key}>
             <Icon type={item.icon} />
             <span className="nav-text">{item.text}</span>
