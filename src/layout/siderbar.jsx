@@ -14,7 +14,7 @@ function Siderbar(props) {
   const [collapsed, setCollapsed] = useState(false);
 
   const onCollapse = (collapsed) => {
-    collapsed ? document.getElementById('section_layout').style.left = "80px" : document.getElementById('section_layout').style.left = "200px"
+    collapsed ? document.getElementById('container').style.left = "80px" : document.getElementById('container').style.left = "200px"
     setCollapsed(collapsed);
   }
   return (

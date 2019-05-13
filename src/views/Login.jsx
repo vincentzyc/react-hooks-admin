@@ -16,7 +16,7 @@ const LoginForm = props => {
     });
   }
   return (
-    <div className="wrapper">
+    <div className="login-wrapper">
       <Form onSubmit={handleSubmit} className="login-form loginForm">
         <FormItem>
           {getFieldDecorator("userName", {
