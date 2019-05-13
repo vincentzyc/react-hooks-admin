@@ -5,8 +5,8 @@ import { Redirect } from "react-router-dom";
 import Siderbar from "./siderbar"
 
 
-import Store from "../hooks/context";
-import reducer from "../hooks/reducer";
+import Store from "../store/context";
+import reducer from "../store/reducer";
 
 const {
   Header, Content, Footer,

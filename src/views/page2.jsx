@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
-// import React from "react";
 
-import Store from "../hooks/context";
+import Store from "../store/context";
 
 
 const Page2 = props => {
