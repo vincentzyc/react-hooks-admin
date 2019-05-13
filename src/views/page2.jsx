@@ -23,7 +23,7 @@ const Page2 = props => {
   }
 
   return (
-    <div>
+    <section className="text-center">
       <img
         src={require("../assets/img/logo.svg")}
         alt="logo"
@@ -53,7 +53,7 @@ const Page2 = props => {
           ))}
         </ul>
       </div>
-    </div>
+    </section>
   );
 }
 

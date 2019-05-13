@@ -14,19 +14,16 @@ function Siderbar(props) {
   const [collapsed, setCollapsed] = useState(false);
 
   const onCollapse = (collapsed) => {
-    collapsed ? document.getElementById('section_layout').style.marginLeft = "80px" : document.getElementById('section_layout').style.marginLeft = "200px"
+    collapsed ? document.getElementById('section_layout').style.left = "80px" : document.getElementById('section_layout').style.left = "200px"
     setCollapsed(collapsed);
   }
   return (
     <Sider
-      style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}
+      style={{ overflow: 'auto', height: '100%' }}
       collapsible
       collapsed={collapsed}
       onCollapse={onCollapse}
     >
-      <div style={{ width: '100%', textAlign: 'center' }}>
-        <img src={require('../assets/img/logo.svg')} alt="logo" width="100%" />
-      </div>
       <Menu
         theme="dark"
         mode="inline"

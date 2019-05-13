@@ -1,16 +1,9 @@
 import React, { useContext, useReducer } from "react";
-// import React from "react";
-import { Layout } from 'antd';
 import { Redirect } from "react-router-dom";
 import Siderbar from "./siderbar"
 
-
 import Store from "../store/context";
 import reducer from "../store/reducer";
-
-const {
-  Header, Content, Footer,
-} = Layout;
 
 export default function BasicLayout(props) {
   let isLogin = window.localStorage.getItem("y_userName");
@@ -18,24 +11,25 @@ export default function BasicLayout(props) {
   const [state, dispatch] = useReducer(reducer, useContext(Store));
 
   return isLogin ? (
-    <Layout style={{ height: '100%' }}>
-      <Store.Provider value={{ state, dispatch }} >
-        <Siderbar />
-        <Layout id="section_layout" style={{ marginLeft: 200, transition: '0.3s', height: '100%', overflow: 'auto' }}>
-          <div style={{ minWidth: '1100px', height: '100%' }}>
-            <Header style={{ background: '#fff', padding: 0 }} />
-            <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-              <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
-                {props.children}
-              </div>
-            </Content>
-            <Footer style={{ textAlign: 'center' }}>
-              Ant Design ©2018 Created by Ant UED
-          </Footer>
+    <Store.Provider value={{ state, dispatch }} >
+      <div style={{ height: '100%', position: 'relative' }}>
+        <header style={{ position: 'fixed', zIndex: 1, width: '100%', height: 70, padding: 0, background: '#002140' }}>
+          <div style={{ width: '100%' }}>
+            <img src={require('../assets/img/logo.svg')} alt="logo" width="70px" />
           </div>
-        </Layout>
-      </Store.Provider>
-    </Layout>
+        </header>
+
+        <div style={{ position: 'fixed', top: 70, left: 0, bottom: 0 }}>
+          <Siderbar />
+        </div>
+
+        <section id="section_layout" style={{ position: 'absolute', top: 70, left: 200, right: 0, bottom: 0, transition: '0.3s', overflow: 'auto' }}>
+          <div style={{ minWidth: '1100px', height: '100%' }}>
+            {props.children}
+          </div>
+        </section>
+      </div>
+    </Store.Provider>
   ) : (
       <Redirect replace to="/login" />
     )
