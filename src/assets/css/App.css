@@ -19,6 +19,7 @@
 	}
 }
 
+/* layout */
 .wrapper {
 	width: 100%;
 	height: 100%;
@@ -47,7 +48,7 @@
 	overflow: auto;
 	transition: 0.3s;
 }
-
+/* login page */
 .login-wrapper {
 	display: flex;
 	width: 100%;
@@ -72,7 +73,6 @@
 .login-form.loginForm .login-form-button {
 	width: 100%;
 }
-
 
 .todos input {
 	width: 100%;
