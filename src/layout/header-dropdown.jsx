@@ -1,7 +1,8 @@
 import React from 'react';
+import { withRouter } from "react-router-dom";
 import { Menu, Dropdown, Icon } from 'antd';
 
-export default function HeaderDropdown(props) {
+function HeaderDropdown(props) {
   function menuClick(item) {
     switch (item.key) {
       case 'changePassWord':
@@ -9,6 +10,8 @@ export default function HeaderDropdown(props) {
         break;
       case 'loginOut':
         console.log('退出登录');
+        window.localStorage.removeItem("y_userName");
+        props.history.push('/login');
         break;
       default:
         break;
@@ -29,3 +32,5 @@ export default function HeaderDropdown(props) {
     </Dropdown>
   )
 }
+
+export default withRouter(HeaderDropdown)
