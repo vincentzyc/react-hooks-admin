@@ -14,7 +14,7 @@ const Page2 = props => {
   }
 
   function handleTodoAdd() {
-    dispatch({ type: "ADD_TODO", payload: todo });
+    dispatch({ func: "setTodos", data: { type: "ADD_TODO", payload: todo } });
     setTodo("");
   }
 
@@ -48,7 +48,7 @@ const Page2 = props => {
           {state.todos.map(t => (
             <li key={t} className="flex align-middle">
               <h4 className="flex-auto mg-r20">{t}</h4>
-              <button className="btn" onClick={() => dispatch({ type: "COMPLETE", payload: t })}>Complete</button>
+              <button className="btn" onClick={() => dispatch({ func: "setTodos", data: { type: "COMPLETE", payload: t } })}>Complete</button>
             </li>
           ))}
         </ul>
