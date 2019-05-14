@@ -48,6 +48,13 @@
 	overflow: auto;
 	transition: 0.3s;
 }
+.ant-dropdown-link{
+  color: #fff;
+  line-height: 70px;
+  float: right;
+  margin-right: 30px;
+  cursor: pointer;
+}
 /* login page */
 .login-wrapper {
 	display: flex;

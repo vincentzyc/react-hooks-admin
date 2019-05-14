@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import Siderbar from "./siderbar"
+import HeaderDropdown from "./header-dropdown";
 
 export default function BasicLayout(props) {
   let isLogin = window.localStorage.getItem("y_userName");
@@ -9,7 +10,8 @@ export default function BasicLayout(props) {
     <div className="wrapper">
       <header className="header">
         <div style={{ width: '100%' }}>
-          <img src={require('../assets/img/logo.svg')} alt="logo" width="70px" />
+          <img src={require('../assets/img/logo.svg')} alt="logo" width="70" height="70"/>
+          <HeaderDropdown userName={isLogin}/>
         </div>
       </header>
 

@@ -1,23 +1,30 @@
 import React from 'react';
 import { Menu, Dropdown, Icon } from 'antd';
 
-export default function HeaderDropdown() {
+export default function HeaderDropdown(props) {
+  function menuClick(item) {
+    switch (item.key) {
+      case 'changePassWord':
+        console.log('修改密码');
+        break;
+      case 'loginOut':
+        console.log('退出登录');
+        break;
+      default:
+        break;
+    }
+  }
   const menu = (
-    <Menu>
-      <Menu.Item key="0">
-        <a href="http://www.alipay.com/">1st menu item</a>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <a href="http://www.taobao.com/">2nd menu item</a>
-      </Menu.Item>
+    <Menu onClick={menuClick}>
+      <Menu.Item key="changePassWord">修改密码</Menu.Item>
       <Menu.Divider />
-      <Menu.Item key="3">3rd menu item</Menu.Item>
+      <Menu.Item key="loginOut">退出登录</Menu.Item>
     </Menu>
   );
   return (
-    <Dropdown overlay={menu} trigger={['click']}>
+    <Dropdown overlay={menu} trigger={['click']} placement="bottomCenter">
       <span className="ant-dropdown-link">
-        Click me <Icon type="down" />
+        {props.userName} <Icon type="down" />
       </span>
     </Dropdown>
   )
