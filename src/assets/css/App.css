@@ -54,6 +54,7 @@
   float: right;
   margin-right: 30px;
   cursor: pointer;
+  user-select: none
 }
 /* login page */
 .login-wrapper {
