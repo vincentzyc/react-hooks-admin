@@ -28,9 +28,9 @@ const App = () => {
   const [appList, setAppListe] = useState([]);
 
   useEffect(() => {
-    console.log('test1211');
     if (appList.length === 0) test1();
   });
+  
   return (
     <div className="mg20">
       <Breadcrumb>
