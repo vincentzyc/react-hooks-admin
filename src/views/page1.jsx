@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import { Form, Select, InputNumber, Input, DatePicker, Switch, Slider, Button } from 'antd';
 import { Link } from 'react-router-dom'
 import Yui from '@/assets/js';
+import { createHashHistory } from 'history';
+
+const history = createHashHistory();
 
 const { Option } = Select;
 
 const App = () => {
   async function test1() {
-    setValue(Yui.$util.getFormatDate('yyyy-mm-dd'))
+    history.push("/page4")
+    // setValue(Yui.$util.getFormatDate('yyyy-mm-dd'))
     // let param = {
     //   dataSource: "WEB_HUAWEI",
     //   appName: "",
@@ -29,10 +33,10 @@ const App = () => {
     <Form style={{ marginTop: 32 }}>
       <div className="text-center">
         <Button type="primary" className="mg20" onClick={test1}>
-          test1
+          跳转page4
       </Button>
         <Button type="primary" className="mg20" onClick={test2}>
-          test2
+          获取当前时间
       </Button>
       </div>
       <Form.Item
