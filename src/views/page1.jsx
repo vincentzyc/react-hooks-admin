@@ -11,31 +11,22 @@ const { Option } = Select;
 const App = () => {
   async function test1() {
     // history.push("/page4")
-    // let param = {
-    //   dataSource: "WEB_HUAWEI",
-    //   appName: "",
-    //   startAndEndTime: [Yui.$util.getFormatDate("yyyy-mm-dd", Date.now() - 86400000 * 6), Yui.$util.getFormatDate("yyyy-mm-dd")],
-    //   startTime: Yui.$util.getFormatDate("yyyy-mm-dd", Date.now() - 86400000 * 6),
-    //   endTime: Yui.$util.getFormatDate("yyyy-mm-dd"),
-    //   pageIndex: 1,
-    //   pageSize: 10,
-    //   totalCount: 0
-    // }
-    // let res = await Yui.$api.AdAnalysis.getAdEffectList(param);
-    setAppListe([{ id: 152380980, appName: "腾讯视频极速版", appId: "100618333", customerName: "腾讯科技（北京）有限公司" },
-    { id: 152380981, appName: "流量雷锋", appId: "10286720", customerName: "北京骏伯网络科技有限公司", customerId: 64568137 },
-    { id: 152380979, appName: "QQ音乐", appId: "10220136", customerName: "深圳市腾讯计算机系统有限公司" }])
-    // console.log(res);
+    let param = {
+      startTime: Yui.$util.getFormatDate("yyyy-mm-dd", Date.now() - 86400000 * 6),
+      endTime: Yui.$util.getFormatDate("yyyy-mm-dd"),
+    }
+    let res = await Yui.$api.AdAnalysis.getAdEffectList(param);
+    setAppListe(res.list || [])
   }
   function test2() {
     setValue(Yui.$util.getFormatDate())
   }
   const [value, setValue] = useState('');
 
-  const [appvalue, setAppvalue] = useState('10220136');
+  const [userValue, setUserValue] = useState();
 
   const [appList, setAppListe] = useState([]);
-  
+
   useEffect(() => {
     console.log('test1211');
     if (appList.length === 0) test1();
@@ -46,7 +37,7 @@ const App = () => {
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item> Application Center</Breadcrumb.Item>
         <Breadcrumb.Item> Application List</Breadcrumb.Item>
-        <Breadcrumb.Item>{appvalue}</Breadcrumb.Item>
+        <Breadcrumb.Item>{userValue}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="text-center">
         <Button type="primary" className="mg20" onClick={test1}>test1</Button>
@@ -86,7 +77,7 @@ const App = () => {
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 8 }}
         >
-          <Select value={appvalue} onChange={selectedItems => setAppvalue(selectedItems)} style={{ width: 192 }}>
+          <Select value={userValue} onChange={selectedItems => setUserValue(selectedItems)} style={{ width: 192 }}>
             {
               appList.map(item => (
                 <Option key={item.id} value={item.appId}>{item.appName}</Option>
@@ -103,14 +94,9 @@ const App = () => {
         </Form.Item>
         <Form.Item wrapperCol={{ span: 8, offset: 8 }}>
           <Link to="/page6">
-            <Button type="primary" htmlType="submit">
-              确定
-          </Button>
+            <Button type="primary" htmlType="submit">确定</Button>
           </Link>
-
-          <Button style={{ marginLeft: 8 }}>
-            取消
-        </Button>
+          <Button style={{ marginLeft: 8 }}>取消</Button>
         </Form.Item>
       </Form>
     </div>

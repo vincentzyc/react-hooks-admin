@@ -11,6 +11,7 @@
     "history": "^4.9.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "mockjs": "^1.0.1-beta3",
     "react": "^16.8.4",
     "react-app-rewired": "^2.1.0",
     "react-dom": "^16.8.4",
