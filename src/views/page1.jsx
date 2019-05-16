@@ -2,15 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Form, Select, InputNumber, Input, DatePicker, Switch, Slider, Button, Breadcrumb } from 'antd';
 import { Link } from 'react-router-dom'
 import Yui from '@/assets/js';
-// import { createHashHistory } from 'history';
+import { createHashHistory } from 'history';
 
-// const history = createHashHistory();
+const history = createHashHistory();
 
 const { Option } = Select;
 
 const App = () => {
   async function test1() {
-    // history.push("/page4")
     let param = {
       startTime: Yui.$util.getFormatDate("yyyy-mm-dd", Date.now() - 86400000 * 6),
       endTime: Yui.$util.getFormatDate("yyyy-mm-dd"),
@@ -30,7 +29,7 @@ const App = () => {
   useEffect(() => {
     if (appList.length === 0) test1();
   });
-  
+
   return (
     <div className="mg20">
       <Breadcrumb>
@@ -40,7 +39,7 @@ const App = () => {
         <Breadcrumb.Item>{userValue}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="text-center">
-        <Button type="primary" className="mg20" onClick={test1}>test1</Button>
+        <Button type="primary" className="mg20" onClick={() => history.push("/page4")}>go page4</Button>
         <Button type="primary" className="mg20" onClick={test2}>获取当前时间</Button>
       </div>
       <Form style={{ marginTop: 32 }}>
