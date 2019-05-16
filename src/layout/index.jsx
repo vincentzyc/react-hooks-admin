@@ -10,7 +10,7 @@ export default function BasicLayout(props) {
     <div className="wrapper">
       <header className="header">
         <div style={{ width: '100%' }}>
-          <img src={require('../assets/img/logo.svg')} alt="logo" width="70" height="70" className="mg-l20"/>
+          <img src={require('../assets/img/logo.svg')} alt="logo" className="App-logo mg-l20" width="70" height="70"/>
           <HeaderDropdown userName={isLogin}/>
         </div>
       </header>
