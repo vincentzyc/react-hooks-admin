@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Divider, Tag } from 'antd';
+import { Table, Divider, Tag,Breadcrumb } from 'antd';
 import Yui from '@/assets/js';
 const columns = [
   {
@@ -50,7 +50,6 @@ const columns = [
   },
 ];
 
-
 const Page3 = () => {
   async function test1() {
     let param = {
@@ -64,14 +63,18 @@ const Page3 = () => {
 
   const [data, setData] = useState([]);
 
-
   useEffect(() => {
     if (data.length === 0) test1();
   })
 
   return (
-    <div>
-      <Table columns={columns} dataSource={data} />
+    <div className="mg20">
+      <Breadcrumb>
+        <Breadcrumb.Item>Home</Breadcrumb.Item>
+        <Breadcrumb.Item> Application Center</Breadcrumb.Item>
+        <Breadcrumb.Item> Application List</Breadcrumb.Item>
+      </Breadcrumb>
+      <Table columns={columns} dataSource={data} className="mg-t10"/>
     </div>
   )
 }

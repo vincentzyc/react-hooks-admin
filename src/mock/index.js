@@ -16,7 +16,7 @@ Mock.mock('/api/beacon/report_ad_analysis/list', {
 })
 
 Mock.mock('/api/beacon/report_ad_customer/list', {
-  "list|5-20": [{
+  "list|5-50": [{
     "key|1-100000000": 11,
     "age|1-100": 11,
     name: "@name",
