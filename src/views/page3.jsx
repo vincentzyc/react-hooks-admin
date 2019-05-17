@@ -74,7 +74,7 @@ const Page3 = () => {
         <Breadcrumb.Item> Application Center</Breadcrumb.Item>
         <Breadcrumb.Item> Application List</Breadcrumb.Item>
       </Breadcrumb>
-      <Table columns={columns} dataSource={data} className="mg-t10"/>
+      <Table pagination={{showSizeChanger:true}} columns={columns} dataSource={data} className="mg-t10"/>
     </div>
   )
 }
