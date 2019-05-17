@@ -15,22 +15,20 @@ Mock.mock('/api/beacon/report_ad_analysis/list', {
   }]
 })
 
-Mock.mock("getuserinfo", {
-  name: "@cname",
-  "age|10-76": 20
-});
+Mock.mock('/api/beacon/report_ad_customer/list', {
+  "list|5-20": [{
+    "key|1-100000000": 11,
+    "age|1-100": 11,
+    name: "@name",
+    'tags': ()=>{
+      let arr = ['nice', 'developer','loser','cool', 'teacher'];
+      let index = Math.floor(Math.random()*5);
+      return [arr[index]]
+    },
+    'address|1-3': 'New York Lake Park',
+  }]
+})
 
-Mock.mock("login", {
-  code: 0,
-  name: "@cname",
-  "age|10-76": 20
-});
-
-Mock.mock("api/user", {
-  code: 0,
-  name: "@cname",
-  "age|10-76": 20
-});
 
 Mock.mock("supermarketloan/homepage/allviews", {
   "list|1-10": [{
