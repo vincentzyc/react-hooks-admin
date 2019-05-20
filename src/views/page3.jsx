@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Divider, Tag,Breadcrumb } from 'antd';
+import { Table, Divider, Tag,Breadcrumb,Form,Input,Icon,Button } from 'antd';
 import Yui from '@/assets/js';
 const columns = [
   {
@@ -74,6 +74,25 @@ const Page3 = () => {
         <Breadcrumb.Item> Application Center</Breadcrumb.Item>
         <Breadcrumb.Item> Application List</Breadcrumb.Item>
       </Breadcrumb>
+      <div className="mg-t20">
+        <Form layout="inline">
+          <Form.Item>
+              <Input
+                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="Username"
+              />
+          </Form.Item>
+          <Form.Item> 
+              <Input
+                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="Address"
+              />
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit"> 查询</Button>
+          </Form.Item>
+        </Form>
+      </div>
       <Table pagination={{showSizeChanger:true}} columns={columns} dataSource={data} className="mg-t10"/>
     </div>
   )
