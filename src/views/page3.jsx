@@ -82,9 +82,9 @@ const Page3 = () => {
                 placeholder="Username"
               />
           </Form.Item>
-          <Form.Item> 
+          <Form.Item>
               <Input
-                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                prefix={<Icon type="home" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 placeholder="Address"
               />
           </Form.Item>
