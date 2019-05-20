@@ -3,7 +3,7 @@ import AppRank from './app-rank';
 import AdAnalysis from './ad-analysis';
 // import Util from '../util';
 import Axios from "./axios";
-import { Modal } from 'antd';
+import { message } from 'antd';
 
 
 const createInterface = arr => {
@@ -32,18 +32,12 @@ const Api = {
         if (res.status !== 200) {
           console.log('请求失败', res);
           if (backData === 'getError') resolve({ error: true });
-          return Modal.info({
-            title: '提示',
-            content: res.statusText || '网络异常'
-          });
+          return message.info(res.statusText || '网络异常');
         }
         return resolve(res.data);
       }).catch(error => {
         console.log(error);
-        return Modal.info({
-          title: '提示',
-          content: '网络异常'
-        });
+        return message.info('网络异常');
       });
     })
   }
