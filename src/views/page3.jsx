@@ -51,20 +51,19 @@ const columns = [
 ];
 
 const Page3 = () => {
-  async function test1() {
+  async function getCustomerList() {
     let param = {
       startTime: Yui.$util.getFormatDate("yyyy-mm-dd", Date.now() - 86400000 * 6),
       endTime: Yui.$util.getFormatDate("yyyy-mm-dd"),
     }
     let res = await Yui.$api.AdAnalysis.getCustomerList(param);
-    console.log(res);
     setData(res.list || [])
   }
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    if (data.length === 0) test1();
+    if (data.length === 0) getCustomerList();
   })
 
   return (

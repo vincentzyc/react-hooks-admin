@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
-import { Menu, Dropdown, Icon } from 'antd';
+import { Menu, Dropdown, Icon, Avatar } from 'antd';
 
 function HeaderDropdown(props) {
   function menuClick(item) {
@@ -27,7 +27,9 @@ function HeaderDropdown(props) {
   return (
     <Dropdown overlay={menu} trigger={['click']} placement="bottomCenter">
       <span className="ant-dropdown-link">
-        {props.userName} <Icon type="down" />
+        <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>{props.userName.slice(0,1)}</Avatar>
+        <span className="mg1  0">{props.userName}</span>
+        <Icon type="down" />
       </span>
     </Dropdown>
   )
