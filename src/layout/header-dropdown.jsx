@@ -7,7 +7,7 @@ function HeaderDropdown(props) {
     switch (item.key) {
       case 'changePassWord':
         console.log('修改密码');
-        props.history.push('/updatainfo');
+        props.history.push('/updateinfo');
         break;
       case 'loginOut':
         console.log('退出登录');
