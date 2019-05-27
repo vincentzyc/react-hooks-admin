@@ -7,6 +7,7 @@ function HeaderDropdown(props) {
     switch (item.key) {
       case 'changePassWord':
         console.log('修改密码');
+        props.history.push('/updatainfo');
         break;
       case 'loginOut':
         console.log('退出登录');
@@ -27,7 +28,7 @@ function HeaderDropdown(props) {
   return (
     <Dropdown overlay={menu} trigger={['click']} placement="bottomCenter">
       <span className="ant-dropdown-link">
-        <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>{props.userName.slice(0,1)}</Avatar>
+        <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>{props.userName.slice(0, 1)}</Avatar>
         <span className="mg10">{props.userName}</span>
         <Icon type="down" />
       </span>

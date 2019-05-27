@@ -37,6 +37,7 @@ export default function RouterList() {
                 <Route path="/page8" component={MyLoadable(() => import('../views/page8'))} />
                 <Route path="/page8" component={MyLoadable(() => import('../views/page8'))} />
                 <Route path="/todos" component={MyLoadable(() => import('../views/todos'))} />
+                <Route path="/updateinfo" component={MyLoadable(() => import('../views/update-info'))} />
                 <Redirect replace to="/404" />
               </Switch>
             </Containers>
