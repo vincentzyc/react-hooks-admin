@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Skeleton, List, Avatar, Icon } from 'antd';
+import { Skeleton, List, Avatar, Icon, BackTop } from 'antd';
 
 const listData = [];
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 8; i++) {
   listData.push({
     href: 'http://ant.design',
     title: `ant design part ${i}`,
@@ -38,6 +38,7 @@ const Page7 = () => {
 
   return (
     <div className="pd20">
+      <BackTop visibilityHeight={100} target={() => document.getElementById("container")} />
       <List
         itemLayout="vertical"
         size="large"
