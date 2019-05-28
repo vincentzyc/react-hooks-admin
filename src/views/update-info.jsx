@@ -76,8 +76,8 @@ const updateInfo = props => {
       </Form.Item>
       <Form.Item>
         <p>passwordError:{passwordError}</p>
-        <p>confirmPasswordError:{confirmPasswordError}</p>
         <p>newPasswordError:{newPasswordError}</p>
+        <p>confirmPasswordError:{confirmPasswordError}</p>
       </Form.Item>
     </Form>
   );
