@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu } from 'antd';
 import { withRouter } from "react-router-dom";
-import sidebarList from "./sidebar.js"
+import sidebarList from "./sidebar-list.jsx"
 
 const { Sider } = Layout;
 
@@ -17,6 +17,7 @@ function Siderbar(props) {
     collapsed ? document.getElementById('container').style.left = "80px" : document.getElementById('container').style.left = "200px"
     setCollapsed(collapsed);
   }
+
   return (
     <Sider
       style={{ overflow: 'auto', height: '100%' }}
@@ -33,8 +34,7 @@ function Siderbar(props) {
         style={{ marginBottom: '50px' }}
       >
         {sidebarList.map(item => (
-          <Menu.Item key={item.key}>
-            <Icon type={item.icon} />
+          <Menu.Item key={item.key} icon={item.icon}>
             <span className="nav-text">{item.text}</span>
           </Menu.Item>
         ))}
