@@ -4,26 +4,25 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
+    "@craco/craco": "^5.6.4",
     "antd": "^4.4.2",
     "axios": "^0.19.2",
     "babel-plugin-import": "^1.13.0",
     "crypto-js": "^4.0.0",
-    "customize-cra": "^1.0.0",
     "less": "^3.12.0",
     "less-loader": "^6.2.0",
     "mockjs": "^1.1.0",
     "react": "^16.13.1",
-    "react-app-rewired": "^2.1.6",
     "react-dom": "^16.13.1",
     "react-loadable": "^5.5.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "set PORT=3050 && react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,5 +39,6 @@
       "last 1 safari version"
     ]
   },
+  "homepage":"./",
   "proxy": "http://xxx.com"
 }
