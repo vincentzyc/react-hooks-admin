@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
-import { Menu, Dropdown, Icon, Avatar } from 'antd';
+import { Menu, Dropdown, Avatar } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 function HeaderDropdown(props) {
   function menuClick(item) {
@@ -30,7 +31,7 @@ function HeaderDropdown(props) {
       <span className="ant-dropdown-link">
         <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>{props.userName.slice(0, 1)}</Avatar>
         <span className="mg10">{props.userName}</span>
-        <Icon type="down" />
+        <DownOutlined />
       </span>
     </Dropdown>
   )
