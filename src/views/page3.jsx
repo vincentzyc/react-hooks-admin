@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Divider, Tag,Breadcrumb,Form,Input,Icon,Button } from 'antd';
+import { Table, Divider, Tag, Breadcrumb, Form, Input, Button } from 'antd';
+import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import Yui from '@/assets/js';
 const columns = [
   {
@@ -76,23 +77,23 @@ const Page3 = () => {
       <div className="mg-t20">
         <Form layout="inline">
           <Form.Item>
-              <Input
-                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="Username"
-              />
+            <Input
+              prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder="Username"
+            />
           </Form.Item>
           <Form.Item>
-              <Input
-                prefix={<Icon type="home" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="Address"
-              />
+            <Input
+              prefix={<HomeOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder="Address"
+            />
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit"> 查询</Button>
+            <Button type="primary" htmlType="submit">查询</Button>
           </Form.Item>
         </Form>
       </div>
-      <Table pagination={{showSizeChanger:true}} columns={columns} dataSource={data} className="mg-t10"/>
+      <Table pagination={{ showSizeChanger: true }} columns={columns} dataSource={data} className="mg-t10" />
     </div>
   )
 }

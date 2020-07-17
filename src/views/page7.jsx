@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Skeleton, List, Avatar, Icon, BackTop } from 'antd';
+import { Skeleton, List, Avatar, BackTop } from 'antd';
+import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons';
 
 const listData = [];
 for (let i = 0; i < 8; i++) {
@@ -13,13 +14,6 @@ for (let i = 0; i < 8; i++) {
       'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
   });
 }
-
-const IconText = ({ type, text }) => (
-  <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
-    {text}
-  </span>
-);
 
 const Page7 = () => {
   const [loading, setLoading] = useState(true);
@@ -48,9 +42,9 @@ const Page7 = () => {
             key={item.title}
             actions={
               !loading && [
-                <IconText type="star-o" text="156" />,
-                <IconText type="like-o" text="156" />,
-                <IconText type="message" text="2" />,
+                <span><StarOutlined />156</span>,
+                <span><LikeOutlined />123</span>,
+                <span><MessageOutlined />2</span>
               ]
             }
             extra={

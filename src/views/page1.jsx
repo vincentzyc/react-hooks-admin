@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Select, InputNumber, Input, DatePicker, Switch, Slider, Button, Breadcrumb } from 'antd';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Yui from '@/assets/js';
-import { createHashHistory } from 'history';
-
-const history = createHashHistory();
 
 const { Option } = Select;
 
 const App = () => {
+  const history = useHistory();
   async function test1() {
     let param = {
       startTime: Yui.$util.getFormatDate("yyyy-mm-dd", Date.now() - 86400000 * 6),
