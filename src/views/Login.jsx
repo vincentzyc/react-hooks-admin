@@ -2,40 +2,42 @@ import React from "react";
 import { Form, Icon, Input, Button } from "antd";
 // import api from "../common/api";
 
-const FormItem = Form.Item;
-
 const LoginForm = props => {
-  const { getFieldDecorator } = props.form;
-  const handleSubmit = e => {
-    e.preventDefault();
-    props.form.validateFields((err, values) => {
-      if (!err) {
-        window.localStorage.setItem("y_userName", values.userName);
-        props.history.replace('/');
-      }
-    });
-  }
+  const onFinish = values => {
+    console.log('Success:', values);
+    window.localStorage.setItem("y_userName", values.userName);
+    props.history.replace('/');
+  };
+  const onFinishFailed = errorInfo => {
+    console.log('Failed:', errorInfo);
+  };
+
   return (
     <div className="login-wrapper">
-      <Form onSubmit={handleSubmit} className="login-form loginForm">
-        <FormItem>
-          {getFieldDecorator("userName", {
-            rules: [{ required: true, message: "Please input your username!" }]
-          })(<Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />)}
-        </FormItem>
-        <FormItem>
-          {getFieldDecorator("password", {
-            rules: [{ required: true, message: "Please input your Password!" }]
-          })(<Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />)}
-        </FormItem>
-        <FormItem>
+      <Form
+        name="basic"
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        className="login-form loginForm">
+        <Form.Item
+          label="账号"
+          name="userName"
+          rules={[{ required: true, message: 'Please input your username!' }]}>
+          <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+        </Form.Item>
+        <Form.Item
+          label="密码"
+          name="password"
+          rules={[{ required: true, message: 'Please input your password!' }]}>
+          <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
+        </Form.Item>
+        <Form.Item>
           <Button type="primary" htmlType="submit" className="login-form-button">Log in</Button>
-        </FormItem>
+        </Form.Item>
       </Form>
     </div>
   );
 }
 
-const WrappedNormalLoginForm = Form.create()(LoginForm);
-
-export default WrappedNormalLoginForm;
+export default LoginForm;
