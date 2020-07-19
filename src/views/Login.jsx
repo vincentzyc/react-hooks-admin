@@ -1,6 +1,6 @@
 import React from "react";
-import { Form, Icon, Input, Button } from "antd";
-// import api from "../common/api";
+import { Form, Input, Button } from "antd";
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 const LoginForm = props => {
   const onFinish = values => {
@@ -24,13 +24,13 @@ const LoginForm = props => {
           label="账号"
           name="userName"
           rules={[{ required: true, message: 'Please input your username!' }]}>
-          <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+          <Input prefix={<UserOutlined type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
         </Form.Item>
         <Form.Item
           label="密码"
           name="password"
           rules={[{ required: true, message: 'Please input your password!' }]}>
-          <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
+          <Input prefix={<LockOutlined style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" className="login-form-button">Log in</Button>
