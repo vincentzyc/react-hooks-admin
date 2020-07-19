@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Divider, Tag, Breadcrumb, Form, Input, Button } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
-import Yui from '@/assets/js';
+import { getFormatDate } from '@/utils/index';
+import { AdAnalysis } from '@/api/index'
+
 const columns = [
   {
     title: 'Name',
@@ -54,10 +56,10 @@ const columns = [
 const Page3 = () => {
   async function getCustomerList() {
     let param = {
-      startTime: Yui.$util.getFormatDate("yyyy-mm-dd", Date.now() - 86400000 * 6),
-      endTime: Yui.$util.getFormatDate("yyyy-mm-dd"),
+      startTime: getFormatDate("yyyy-mm-dd", Date.now() - 86400000 * 6),
+      endTime: getFormatDate("yyyy-mm-dd"),
     }
-    let res = await Yui.$api.AdAnalysis.getCustomerList(param);
+    let res = await AdAnalysis.getCustomerList(param);
     setData(res.list || [])
   }
 
