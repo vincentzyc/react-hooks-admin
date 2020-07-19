@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import { withRouter } from "react-router-dom";
-import sidebarList from "./sidebar-list.jsx"
+import sidebarList from "./sidebar-list"
 
 const { Sider } = Layout;
 
