@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Select, InputNumber, Input, DatePicker, Switch, Slider, Button, Breadcrumb } from 'antd';
 import { Link, useHistory } from 'react-router-dom'
-import Yui from '@/assets/js';
+import { getFormatDate } from '@/utils/index';
+import { AdAnalysis } from '@/api/index';
 
 const { Option } = Select;
 
@@ -9,14 +10,14 @@ const App = () => {
   const history = useHistory();
   async function test1() {
     let param = {
-      startTime: Yui.$util.getFormatDate("yyyy-mm-dd", Date.now() - 86400000 * 6),
-      endTime: Yui.$util.getFormatDate("yyyy-mm-dd"),
+      startTime: getFormatDate("yyyy-mm-dd", Date.now() - 86400000 * 6),
+      endTime: getFormatDate("yyyy-mm-dd"),
     }
-    let res = await Yui.$api.AdAnalysis.getAdEffectList(param);
+    let res = await AdAnalysis.getAdEffectList(param);
     setAppListe(res.list || [])
   }
   function test2() {
-    setValue(Yui.$util.getFormatDate())
+    setValue(getFormatDate())
   }
   const [value, setValue] = useState('');
 
