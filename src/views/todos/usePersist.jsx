@@ -6,6 +6,6 @@ export function usePersistedContext(context, key = "state") {
 }
 
 export function usePersistedReducer([state, dispatch], key = "state") {
-  useEffect(() => localStorage.setItem(key, JSON.stringify(state)), [state]);
+  useEffect(() => localStorage.setItem(key, JSON.stringify(state)));
   return [state, dispatch];
 }
