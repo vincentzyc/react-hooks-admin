@@ -1,7 +1,5 @@
-// import React from 'react';
 import React, { useContext, useReducer } from "react";
 import RouterConfig from "./router";
-import './assets/css/App.css';
 
 import Store from "./store/context";
 import reducer from "./store/reducer";
