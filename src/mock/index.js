@@ -30,7 +30,7 @@ Mock.mock('/api/beacon/report_ad_customer/list', {
 })
 
 
-Mock.mock("supermarketloan/homepage/allviews", {
+Mock.mock("/api/beacon/allviews", {
   "list|1-10": [{
     widgetName: "@name",
     "widgetCate|1": ["输入框", "单选框", "下拉框"],
@@ -43,7 +43,7 @@ Mock.mock("supermarketloan/getlist", {
   }]
 });
 
-Mock.mock("supermarketloan/mgr/loanapply/getuserloanapply", {
+Mock.mock("/api/beacon/getuserloanapply", {
   code: '0',
   "data|1-10": [{
     "applyId|1-99999": 1,
