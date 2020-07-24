@@ -48,7 +48,7 @@ const Page3 = () => {
         <span>
           <a href="#/page3">Invite {item.name}</a>
           <Divider type="vertical" />
-          <span onClick={() => handleDelete(item)}>Delete</span>
+          <Button type="text" onClick={() => handleDelete(item)}>Delete</Button>
         </span>
       ),
     },
