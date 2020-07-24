@@ -43,17 +43,28 @@ const columns = [
   {
     title: 'Action',
     key: 'action',
-    render: (text, record) => (
+    render: item => (
       <span>
-        <a href="#/page3">Invite {record.name}</a>
+        <a href="#/page3">Invite {item.name}</a>
         <Divider type="vertical" />
-        <a href="#/page3">Delete</a>
+        <span onClick={() => handleDelete(item)}>Delete</span>
       </span>
     ),
   },
 ];
 
+
+function handleDelete(item) {
+  console.log(item);
+}
+
 const Page3 = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    if (data.length === 0) getCustomerList();
+  })
+
   async function getCustomerList() {
     let param = {
       startTime: getFormatDate("yyyy-mm-dd", Date.now() - 86400000 * 6),
@@ -62,13 +73,6 @@ const Page3 = () => {
     let res = await AdAnalysis.getCustomerList(param);
     setData(res.list || [])
   }
-
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    if (data.length === 0) getCustomerList();
-  })
-
   return (
     <div className="mg20">
       <Breadcrumb>
