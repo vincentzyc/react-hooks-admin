@@ -4,61 +4,55 @@ import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { getFormatDate } from '@/utils/index';
 import { AdAnalysis } from '@/api/index'
 
-const columns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name'
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: tags => (
-      <span>
-        {tags.map(tag => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </span>
-    ),
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: item => (
-      <span>
-        <a href="#/page3">Invite {item.name}</a>
-        <Divider type="vertical" />
-        <span onClick={() => handleDelete(item)}>Delete</span>
-      </span>
-    ),
-  },
-];
-
-
-function handleDelete(item) {
-  console.log(item);
-}
-
 const Page3 = () => {
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name'
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    },
+    {
+      title: 'Tags',
+      key: 'tags',
+      dataIndex: 'tags',
+      render: tags => (
+        <span>
+          {tags.map(tag => {
+            let color = tag.length > 5 ? 'geekblue' : 'green';
+            if (tag === 'loser') {
+              color = 'volcano';
+            }
+            return (
+              <Tag color={color} key={tag}>
+                {tag.toUpperCase()}
+              </Tag>
+            );
+          })}
+        </span>
+      ),
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: item => (
+        <span>
+          <a href="#/page3">Invite {item.name}</a>
+          <Divider type="vertical" />
+          <span onClick={() => handleDelete(item)}>Delete</span>
+        </span>
+      ),
+    },
+  ];
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -73,6 +67,12 @@ const Page3 = () => {
     let res = await AdAnalysis.getCustomerList(param);
     setData(res.list || [])
   }
+
+  function handleDelete(item) {
+    console.log(item);
+  }
+
+  
   return (
     <div className="mg20">
       <Breadcrumb>
