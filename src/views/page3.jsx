@@ -44,11 +44,11 @@ const Page3 = () => {
     {
       title: 'Action',
       key: 'action',
-      render: item => (
+      render: (text, record, index) => (
         <span>
-          <a href="#/page3">Invite {item.name}</a>
+          <a href="#/page3">Invite {record.name}</a>
           <Divider type="vertical" />
-          <Button type="text" onClick={() => handleDelete(item)}>Delete</Button>
+          <Button type="link" onClick={() => handleDelete(index)}>Delete</Button>
         </span>
       ),
     },
@@ -68,8 +68,11 @@ const Page3 = () => {
     setData(res.list || [])
   }
 
-  function handleDelete(item) {
-    console.log(item);
+  function handleDelete(index) {
+    console.log(index);
+    // data.splice(index,1);
+    // console.log(data);
+    // setData(data)
   }
 
   
