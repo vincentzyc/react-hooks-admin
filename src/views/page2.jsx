@@ -28,7 +28,7 @@ const Page2 = props => {
         src={require("../assets/img/logo.svg")}
         alt="logo"
         className="App-logo"
-        style={{height:200}}
+        style={{ height: 200 }}
         onClick={() => {
           props.history.push("/page3");
         }}
