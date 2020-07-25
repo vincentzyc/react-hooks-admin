@@ -69,10 +69,7 @@ const Page3 = () => {
   }
 
   function handleDelete(index) {
-    console.log(index);
-    // data.splice(index,1);
-    // console.log(data);
-    // setData(data)
+    setData(data.filter((item,i)=>i!==index))
   }
 
   
