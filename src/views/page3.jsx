@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Divider, Tag, Breadcrumb, Form, Input, Button } from 'antd';
-import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+import { Table, Divider, Tag, Breadcrumb, Form, Input, Button,Modal, Space } from 'antd';
+import { HomeOutlined, UserOutlined,ExclamationCircleOutlined } from '@ant-design/icons';
 import { getFormatDate } from '@/utils/index';
 import { AdAnalysis } from '@/api/index'
+
+
+const { confirm } = Modal;
 
 const Page3 = () => {
   const columns = [
@@ -69,7 +72,17 @@ const Page3 = () => {
   }
 
   function handleDelete(index) {
-    setData(data.filter((item,i)=>i!==index))
+    confirm({
+      title: '确定删除这条数据吗？',
+      icon: <ExclamationCircleOutlined />,
+      // content: 'Some descriptions',
+      onOk() {
+        setData(data.filter((item,i)=>i!==index))
+      },
+      // onCancel() {
+      //   console.log('Cancel');
+      // },
+    });
   }
 
   
