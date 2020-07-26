@@ -60,7 +60,7 @@ const Page3 = () => {
 
   useEffect(() => {
     if (data.length === 0) getCustomerList();
-  })
+  },[data])
 
   async function getCustomerList() {
     let param = {
@@ -75,6 +75,8 @@ const Page3 = () => {
     confirm({
       title: '确定删除这条数据吗？',
       icon: <ExclamationCircleOutlined />,
+      okText:'确定',
+      cancelText:'取消',
       // content: 'Some descriptions',
       onOk() {
         setData(data.filter((item,i)=>i!==index))
