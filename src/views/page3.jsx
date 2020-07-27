@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Divider, Tag, Breadcrumb, Form, Input, Button,Modal, Space } from 'antd';
-import { HomeOutlined, UserOutlined,ExclamationCircleOutlined } from '@ant-design/icons';
+import React, { useEffect, useContext } from 'react';
+import { Table, Divider, Tag, Breadcrumb, Form, Input, Button, Modal } from 'antd';
+import { HomeOutlined, UserOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 import { getFormatDate } from '@/utils/index';
 import { AdAnalysis } from '@/api/index'
+import Store from "@/store/context";
 
 
 const { confirm } = Modal;
@@ -56,11 +57,12 @@ const Page3 = () => {
       ),
     },
   ];
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
+  const { state, dispatch } = useContext(Store);
 
   useEffect(() => {
-    if (data.length === 0) getCustomerList();
-  },[data])
+    if (state.page3List.length === 0) getCustomerList();
+  })
 
   async function getCustomerList() {
     let param = {
@@ -68,18 +70,20 @@ const Page3 = () => {
       endTime: getFormatDate("yyyy-mm-dd"),
     }
     let res = await AdAnalysis.getCustomerList(param);
-    setData(res.list || [])
+    // setData(res.list || [])
+    dispatch({ func: "setPage3List", data: { type: "INIT_DATA", payload: res.list || [] } })
   }
 
   function handleDelete(index) {
     confirm({
       title: '确定删除这条数据吗？',
       icon: <ExclamationCircleOutlined />,
-      okText:'确定',
-      cancelText:'取消',
+      okText: '确定',
+      cancelText: '取消',
       // content: 'Some descriptions',
       onOk() {
-        setData(data.filter((item,i)=>i!==index))
+        // setData(data.filter((item,i)=>i!==index))
+        dispatch({ func: "setPage3List", data: { type: "COMPLETE", payload: index } })
       },
       // onCancel() {
       //   console.log('Cancel');
@@ -87,7 +91,7 @@ const Page3 = () => {
     });
   }
 
-  
+
   return (
     <div className="mg20">
       <Breadcrumb>
@@ -114,7 +118,7 @@ const Page3 = () => {
           </Form.Item>
         </Form>
       </div>
-      <Table pagination={{ showSizeChanger: true }} columns={columns} dataSource={data} className="mg-t10" />
+      <Table pagination={{ showSizeChanger: true }} columns={columns} dataSource={state.page3List} className="mg-t10" />
     </div>
   )
 }
