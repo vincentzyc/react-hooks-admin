@@ -8,7 +8,8 @@ const Store = React.createContext({
     "111",
     "222",
     "333"
-  ]
+  ],
+  page3List:[]
 });
 
 export default Store;
