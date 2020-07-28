@@ -8,6 +8,8 @@ import Store from "./context";
 
 const { confirm } = Modal;
 
+let dataSource = []
+
 const Page3 = () => {
   const columns = [
     {
@@ -69,6 +71,7 @@ const Page3 = () => {
       endTime: getFormatDate("yyyy-mm-dd"),
     }
     let res = await AdAnalysis.getCustomerList(param);
+    dataSource = res.list || [];
     dispatch({ type: "INIT_LIST", payload: res.list || [] })
   }
 
@@ -85,10 +88,9 @@ const Page3 = () => {
   }
 
   const onFinish = values => {
-    console.log('Success:', values);
     let keyUsername = (values.Username || '').toLowerCase(),
       keyAddress = (values.Address || '').toLowerCase();
-    let res = state.list.filter(v => v.name.toLowerCase().includes(keyUsername) && v.address.toLowerCase().includes(keyAddress))
+    let res = dataSource.filter(v => v.name.toLowerCase().includes(keyUsername) && v.address.toLowerCase().includes(keyAddress))
     console.log(res);
     dispatch({ type: "INIT_LIST", payload: res })
   };
