@@ -84,6 +84,15 @@ const Page3 = () => {
     });
   }
 
+  const onFinish = values => {
+    console.log('Success:', values);
+    let keyUsername = (values.Username || '').toLowerCase(),
+      keyAddress = (values.Address || '').toLowerCase();
+    let res = state.list.filter(v => v.name.toLowerCase().includes(keyUsername) && v.address.toLowerCase().includes(keyAddress))
+    console.log(res);
+    dispatch({ type: "INIT_LIST", payload: res })
+  };
+
 
   return (
     <div className="mg20">
@@ -93,14 +102,14 @@ const Page3 = () => {
         <Breadcrumb.Item> Application List</Breadcrumb.Item>
       </Breadcrumb>
       <div className="mg-t20">
-        <Form layout="inline">
-          <Form.Item>
+        <Form layout="inline" onFinish={onFinish}>
+          <Form.Item label="Username" name="Username">
             <Input
               prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Username"
             />
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Address" name="Address">
             <Input
               prefix={<HomeOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Address"
